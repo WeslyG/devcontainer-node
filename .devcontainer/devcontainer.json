@@ -1,0 +1,122 @@
+{
+	"name": "Node.js",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "curl,stow,ca-certificates,nano,iputils-ping,nmap,jq,s3cmd"
+		},
+		"ghcr.io/devcontainers-contrib/features/kubectx-kubens:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "1.30.1", // kubectl
+			"helm": "latest",
+			"minikube": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/npm-package:1": {
+			"package": "npm-check-updates"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"typescript.preferences.importModuleSpecifier": "relative",
+				"editor.suggestSelection": "recentlyUsed",
+				"editor.renderWhitespace": "all",
+				"jest.autoRun": "off",
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				// Стоит в false чтоб то че не надо не пыталась форматить
+				"editor.formatOnSave": false, // Включаем форматилку преттира
+				"javascript.updateImportsOnFileMove.enabled": "always",
+				"typescriptreact.updateImportsOnFileMove.enabled": "always",
+				"javascriptreact.updateImportsOnFileMove.enabled": "always",
+				"javascript-react.updateImportsOnFileMove.enabled": "always",
+				"typescript-react.updateImportsOnFileMove.enabled": "always",
+				"[json][jsonc]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode",
+					"editor.formatOnSave": true
+				},
+				"[typescript]": {
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": [
+						"source.addMissingImports",
+						"source.fixAll.eslint"
+					]
+				},
+				"[javascript]": {
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": [
+						"source.addMissingImports",
+						"source.fixAll.eslint"
+					]
+				},
+				"[typescript-react][javascript-react][typescriptreact][javascriptreact]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode",
+					"editor.formatOnSave": true,
+					"editor.codeActionsOnSave": [
+						"source.addMissingImports",
+						"source.fixAll.eslint"
+					]
+				},
+				"cSpell.words": [
+					"compodoc",
+					"dind",
+					"kube",
+					"KUBEDOG",
+					"kubernetes",
+					"nestjs",
+					"openapi",
+					"Pino",
+					"Sendbox"
+				]
+			},
+			"extensions": [
+				"yoavbls.pretty-ts-errors",
+				"mikestead.dotenv",
+				"nicoespeon.abracadabra",
+				"pflannery.vscode-versionlens",
+				"wix.vscode-import-cost",
+				// linters
+				"kisstkondoros.vscode-codemetrics",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				// intellesence
+				"christian-kohler.npm-intellisense",
+				"christian-kohler.path-intellisense",
+				"visualstudioexptteam.vscodeintellicode",
+				// Tests
+				"ms-playwright.playwright",
+				"nautigsam.go-to-test",
+				// databases
+				"cweijan.vscode-database-client2",
+				// postman
+				"rangav.vscode-thunder-client",
+				// Devops
+				"ms-azuretools.vscode-docker",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				// AI
+				"phind.phind",
+				// другое
+				"william-voyek.vscode-nginx",
+				"netcorext.uuid-generator",
+				"ezforo.copy-relative-path-and-line-numbers",
+				"ms-vsliveshare.vsliveshare",
+				"eamodio.gitlens", // git
+				"gruntfuggly.todo-tree", // Осознание количества тудушек в коде
+				"adamhartford.vscode-base64", // Base64 works
+				"streetsidesoftware.code-spell-checker", // очепятки находить на английском
+				"streetsidesoftware.code-spell-checker-russian" // очепятки находить на русском
+			]
+		}
+	}
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "vscode"
+}
