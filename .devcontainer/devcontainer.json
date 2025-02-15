@@ -110,7 +110,7 @@
 				// databases
 				"cweijan.vscode-database-client2",
 				// postman
-				"rangav.vscode-thunder-client",                  // not working in devcontainer!!
+				"vasubasraj.flashpost",
 				// Devops
 				"ms-azuretools.vscode-docker",                   // docker
 				"ms-kubernetes-tools.vscode-kubernetes-tools",   // k8s
