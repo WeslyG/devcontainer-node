@@ -119,7 +119,7 @@
 				"visualstudioexptteam.vscodeintellicode",
 				// Tests
 				"ms-playwright.playwright",
-				"nautigsam.go-to-test",
+				//"nautigsam.go-to-test", - broke keybinding
 				// databases
 				"cweijan.vscode-database-client2",
 				// postman
