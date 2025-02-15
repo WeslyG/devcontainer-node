@@ -5,18 +5,24 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "curl,stow,ca-certificates,nano,iputils-ping,nmap,jq,s3cmd"
+			"packages": "curl,stow,ca-certificates,nano,iputils-ping,nmap,jq,s3cmd,ncdu,dnsutils"
+		},
+		"ghcr.io/dhoeric/features/k9s:1": {
+			"version": "latest"
 		},
 		"ghcr.io/devcontainers-contrib/features/kubectx-kubens:1": {
 			"version": "latest"
 		},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
-			"version": "1.30.1", // kubectl
+			"version": "1.32.1", // kubectl
 			"helm": "latest",
 			"minikube": "latest"
 		},
 		"ghcr.io/devcontainers-contrib/features/npm-package:1": {
 			"package": "npm-check-updates"
+		},
+		"ghcr.io/weslyg/features/hashicorp-mirror:2": {
+			"products": "terraform=1.10.4,vault=1.18.3"
 		},
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 	},
@@ -28,10 +34,27 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"typescript.preferences.importModuleSpecifier": "relative",
-				"editor.suggestSelection": "recentlyUsed",
+				// common
+				"telemetry.telemetryLevel": "off",
+				"extensions.ignoreRecommendations": true,
+				"workbench.startupEditor": "none",
+				// подсветка не ASCII букв в коде, но не в комментах
+				"editor.unicodeHighlight.allowedCharacters": {},
+				"editor.unicodeHighlight.ambiguousCharacters": true,
+				"editor.unicodeHighlight.includeComments": false,
+				"editor.unicodeHighlight.includeStrings": true,
+				"editor.unicodeHighlight.invisibleCharacters": true,
+				"editor.unicodeHighlight.nonBasicASCII": true,
+				"editor.wordWrap": "off",
 				"editor.renderWhitespace": "all",
-				"jest.autoRun": "off",
+				"editor.suggestSelection": "recentlyUsed",
+				"editor.tabSize": 2,
+				"explorer.confirmDelete": false,
+				"explorer.confirmDragAndDrop": false,
+				
+				// Typescript
+				"typescript.preferences.importModuleSpecifier": "relative",
+				"jest.runMode": "on-demand",
 				"editor.defaultFormatter": "esbenp.prettier-vscode",
 				// Стоит в false чтоб то че не надо не пыталась форматить
 				"editor.formatOnSave": false, // Включаем форматилку преттира
@@ -65,18 +88,7 @@
 						"source.addMissingImports",
 						"source.fixAll.eslint"
 					]
-				},
-				"cSpell.words": [
-					"compodoc",
-					"dind",
-					"kube",
-					"KUBEDOG",
-					"kubernetes",
-					"nestjs",
-					"openapi",
-					"Pino",
-					"Sendbox"
-				]
+				}
 			},
 			"extensions": [
 				"yoavbls.pretty-ts-errors",
@@ -98,22 +110,28 @@
 				// databases
 				"cweijan.vscode-database-client2",
 				// postman
-				"rangav.vscode-thunder-client",
+				"rangav.vscode-thunder-client",                  // not working in devcontainer!!
 				// Devops
-				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"ms-azuretools.vscode-docker",                   // docker
+				"ms-kubernetes-tools.vscode-kubernetes-tools",   // k8s
+				"4ops.terraform",                                // terraform
+				"ahmadalli.vscode-nginx-conf",                   // nginx autocomplete + syntax
+				"raynigon.nginx-formatter",                      // nginx formatter
+				"tim-koehler.helm-intellisense",                 // helm
+				// ssl
+				"geeksharp.openssl-configuration-file",
+				"ffaraone.opensslutils",
 				// AI
 				"phind.phind",
 				// другое
-				"william-voyek.vscode-nginx",
 				"netcorext.uuid-generator",
 				"ezforo.copy-relative-path-and-line-numbers",
 				"ms-vsliveshare.vsliveshare",
-				"eamodio.gitlens", // git
-				"gruntfuggly.todo-tree", // Осознание количества тудушек в коде
-				"adamhartford.vscode-base64", // Base64 works
-				"streetsidesoftware.code-spell-checker", // очепятки находить на английском
-				"streetsidesoftware.code-spell-checker-russian" // очепятки находить на русском
+				"eamodio.gitlens",                               // git
+				"gruntfuggly.todo-tree",
+				"adamhartford.vscode-base64",                    // Base64 works
+				"streetsidesoftware.code-spell-checker",         // очепятки находить на английском
+				"streetsidesoftware.code-spell-checker-russian"  // очепятки находить на русском
 			]
 		}
 	}
