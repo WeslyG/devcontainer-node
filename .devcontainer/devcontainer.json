@@ -51,7 +51,6 @@
 				"editor.tabSize": 2,
 				"explorer.confirmDelete": false,
 				"explorer.confirmDragAndDrop": false,
-				
 				// Typescript
 				"typescript.preferences.importModuleSpecifier": "relative",
 				"jest.runMode": "on-demand",
@@ -88,7 +87,21 @@
 						"source.addMissingImports",
 						"source.fixAll.eslint"
 					]
-				}
+				},
+				"[markdown]": {
+					"editor.unicodeHighlight.ambiguousCharacters": false,
+					"editor.unicodeHighlight.includeComments": false,
+					"editor.unicodeHighlight.includeStrings": false,
+					"editor.unicodeHighlight.invisibleCharacters": false,
+					"editor.unicodeHighlight.nonBasicASCII": false,
+					"diffEditor.ignoreTrimWhitespace": false
+				},
+				"cSpell.enabled": true,
+				"cSpell.language": "en,ru",
+				"cSpell.ignorePaths": [
+					"node_modules", // this will ignore anything the node_modules directory
+					".git" // Ignore the .git directory
+				]
 			},
 			"extensions": [
 				"yoavbls.pretty-ts-errors",
@@ -112,12 +125,12 @@
 				// postman
 				"vasubasraj.flashpost",
 				// Devops
-				"ms-azuretools.vscode-docker",                   // docker
-				"ms-kubernetes-tools.vscode-kubernetes-tools",   // k8s
-				"4ops.terraform",                                // terraform
-				"ahmadalli.vscode-nginx-conf",                   // nginx autocomplete + syntax
-				"raynigon.nginx-formatter",                      // nginx formatter
-				"tim-koehler.helm-intellisense",                 // helm
+				"ms-azuretools.vscode-docker", // docker
+				"ms-kubernetes-tools.vscode-kubernetes-tools", // k8s
+				"4ops.terraform", // terraform
+				"ahmadalli.vscode-nginx-conf", // nginx autocomplete + syntax
+				"raynigon.nginx-formatter", // nginx formatter
+				"tim-koehler.helm-intellisense", // helm
 				// ssl
 				"geeksharp.openssl-configuration-file",
 				"ffaraone.opensslutils",
@@ -127,11 +140,11 @@
 				"netcorext.uuid-generator",
 				"ezforo.copy-relative-path-and-line-numbers",
 				"ms-vsliveshare.vsliveshare",
-				"eamodio.gitlens",                               // git
+				"eamodio.gitlens", // git
 				"gruntfuggly.todo-tree",
-				"adamhartford.vscode-base64",                    // Base64 works
-				"streetsidesoftware.code-spell-checker",         // очепятки находить на английском
-				"streetsidesoftware.code-spell-checker-russian"  // очепятки находить на русском
+				"adamhartford.vscode-base64", // Base64 works
+				"streetsidesoftware.code-spell-checker", // очепятки находить на английском
+				"streetsidesoftware.code-spell-checker-russian" // очепятки находить на русском
 			]
 		}
 	}
