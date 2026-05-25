@@ -24,7 +24,7 @@
 		"ghcr.io/weslyg/features/hashicorp-mirror:2": {
 			"products": "terraform=1.10.4,vault=1.18.3"
 		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
+		"ghcr.io/devcontainers/features/docker-in-docker:3": {}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
